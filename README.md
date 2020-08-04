@@ -48,6 +48,74 @@ docker run --name submit-url -itd -m 300m --restart=always \
 wy373226722/submit-url:latest
 ```
 
+### Request
+
+**POST** / Content-Type: application/json
+
+```json
+{
+    "token": "16e*****-c0d8-4b53-b52b-d216e5ea35fc",
+    "urlList": ["https://www.wyr.me/post/630"]
+}
+```
+
+### Success Response
+
+```json
+{
+    "baidu": {
+        "status": "fulfilled",
+        "value": {
+            "code": 1,
+            "msg": "success",
+            "result": {
+                "success": 1,
+                "remain": 99999
+            }
+        }
+    },
+    "google": {
+        "status": "fulfilled",
+        "value": {
+            "code": 1,
+            "msg": "success",
+            "result": {
+                "successNumber": 1,
+                "commitLog": [
+                    {
+                        "status": "fulfilled",
+                        "value": {
+                            "code": 1,
+                            "msg": "success",
+                            "result": {
+                                "urlNotificationMetadata": {
+                                    "url": "https://www.wyr.me/post/630",
+                                    "latestUpdate": {
+                                        "url": "https://www.wyr.me/post/630",
+                                        "type": "URL_UPDATED",
+                                        "notifyTime": "2020-08-04T14:30:06.848150189Z"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "bing": {
+        "status": "fulfilled",
+        "value": {
+            "code": 1,
+            "msg": "success",
+            "result": {
+                "d": null
+            }
+        }
+    }
+}
+```
+
 ### Documentation
 
 [将新文章推送到百度、谷歌、Bing搜索引擎](https://www.wyr.me/post/631)
