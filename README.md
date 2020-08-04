@@ -1,6 +1,40 @@
-# submit-url
+# Submit URL
 
 Submit url to baidu google bing search engine.
+
+## API
+
+### Installation
+
+```bash
+npm install submit-url
+```
+
+### Usage Example
+
+```javascript
+import submitURL from 'submit-url'
+
+const submitURL = new SubmitURL({
+  siteURL: process.env.SITE_URL || '',
+  baiduToken: process.env.BAIDU_TOKEN || '',
+  googleClientEmail: process.env.GOOGLE_CLIENT_EMAIL || '',
+  googlePrivateKey: process.env.GOOGLE_PRIVATE_KEY || '',
+  bingAPIKey: process.env.BING_API_KEY || ''
+})
+
+const [baidu, google, bing] = await Promise.allSettled([
+  submitURL.toBaidu(urlList),
+  submitURL.toGoogle(urlList),
+  submitURL.toBing(urlList)
+])
+
+return { baidu, google, bing }
+```
+
+## API Service with Docker
+
+### Usage Example
 
 ```bash
 docker run --name submit-url -itd -m 300m --restart=always \
@@ -13,3 +47,7 @@ docker run --name submit-url -itd -m 300m --restart=always \
 -p 8080:80 \
 wy373226722/submit-url:latest
 ```
+
+### Documentation
+
+[将新文章推送到百度、谷歌、Bing搜索引擎](https://www.wyr.me/post/630)
