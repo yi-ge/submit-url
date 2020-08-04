@@ -28,11 +28,9 @@ server.post('/', (request) => __awaiter(void 0, void 0, void 0, function* () {
     if (request.body.token === token && urlList) {
         // @ts-ignore - typescript isn't smart enough to see the disjoint here
         const [baidu, google, bing] = yield Promise.allSettled([
-            // submitURL.toBaidu(urlList),
-            null,
+            submitURL.toBaidu(urlList),
             submitURL.toGoogle(urlList),
-            null
-            // submitURL.toBing(urlList)
+            submitURL.toBing(urlList)
         ]);
         return { baidu, google, bing };
     }
@@ -41,7 +39,7 @@ server.post('/', (request) => __awaiter(void 0, void 0, void 0, function* () {
         msg: 'Authorization required.'
     };
 }));
-server.listen(8080, (err, address) => {
+server.listen(80, '0.0.0.0', (err, address) => {
     if (err) {
         console.error(err);
         process.exit(1);
