@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "module": "commonjs",
+    "noImplicitAny": true, // 是否默认禁用 any
+    "types": [ // 默认引入的类型声明
+      "node", // 默认引入 node 的类型声明
+    ],
+    "baseUrl": "src", // 工作根目录
+    "target": "es6", // 编译目标
+    "declaration": true, // 是否自动创建类型声明
+    "moduleResolution": "node",
+    "outDir": "dist/cmjs",
+    "rootDir": "./src",
+    "lib": ["ES2015", "ES2016", "ES2020.Promise"]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

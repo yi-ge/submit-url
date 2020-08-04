@@ -1,0 +1,18 @@
+{
+  "cSpell.words": [
+    "allsettled",
+    "bing",
+    "cmjs",
+    "fastify",
+    "standardx",
+    "submodule"
+  ],
+  "standard.autoFixOnSave": true,
+  "standard.options": {
+    "globals": []
+  },
+  "standard.usePackageJson": true,
+  "standard.engine": "standardx",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "./node_modules/typescript/lib"
+}
