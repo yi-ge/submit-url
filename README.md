@@ -50,4 +50,4 @@ wy373226722/submit-url:latest
 
 ### Documentation
 
-[将新文章推送到百度、谷歌、Bing搜索引擎](https://www.wyr.me/post/630)
+[将新文章推送到百度、谷歌、Bing搜索引擎](https://www.wyr.me/post/631)
