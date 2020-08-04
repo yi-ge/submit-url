@@ -50,7 +50,7 @@ wy373226722/submit-url:latest
 
 ### Request
 
-**POST** \
+**POST** /
 
 Content-Type: application/json
 
