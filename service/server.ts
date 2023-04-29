@@ -1,5 +1,5 @@
-import fastify from 'fastify'
-import * as fastifyCORS from 'fastify-cors'
+import Fastify from 'fastify'
+import * as fastifyCORS from '@fastify/cors'
 import SubmitURL from '../dist/cmjs/main'
 
 // Please provide a random value.
@@ -13,8 +13,10 @@ const submitURL = new SubmitURL({
   bingAPIKey: process.env.BING_API_KEY || ''
 })
 
-const server = fastify()
-server.register(fastifyCORS as any)
+const server = Fastify()
+await server.register(fastifyCORS, {
+  // put your options here
+})
 
 server.post<{
   Body: {
@@ -47,3 +49,14 @@ server.listen(80, '0.0.0.0', (err, address) => {
   }
   console.log(`Server listening at ${address}`)
 })
+
+try {
+  await server.listen({ port: 80, host: '0.0.0.0' })
+
+  const address = server.server.address()
+  const port = typeof address === 'string' ? address : address?.port
+  console.log(`Server listening at ${address}:${port}`)
+} catch (err) {
+  server.log.error(err)
+  process.exit(1)
+}
