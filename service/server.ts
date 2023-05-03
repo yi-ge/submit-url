@@ -1,5 +1,5 @@
 import Fastify from 'fastify'
-import * as fastifyCORS from '@fastify/cors'
+import fastifyCORS from '@fastify/cors'
 import SubmitURL from '../dist/cmjs/main'
 
 // Please provide a random value.
