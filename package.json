@@ -14,7 +14,9 @@
     "build:service": "tsc -p tsconfig-service.json",
     "build": "rm -rf dist; npm run build:cmjs; npm run build:module; npm run build:service; sed -i \"\" \"s/require(\\\"..\\/dist\\/cmjs\\/main\\\")/require(\\\"..\\/cmjs\\/main\\\")/g\" dist/service/server.js",
     "start": "node dist/service/server.js",
-    "lint": "standardx **/*.ts"
+    "lint": "standardx **/*.ts",
+    "dev": "NODE_ENV=development && node --experimental-vm-modules --loader ts-node/esm service/server.ts",
+    "start:ts": "node --no-warnings --experimental-vm-modules --experimental-loader ./loader.js service/service.js"
   },
   "devDependencies": {
     "@types/node": "^18.16.2",
