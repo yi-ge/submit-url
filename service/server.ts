@@ -47,7 +47,7 @@ try {
 
   const address = server.server.address()
   const port = typeof address === 'string' ? address : address?.port
-  console.log(`Server listening at ${address}:${port}`)
+  console.log(`Server listening at 0.0.0.0:${port}`)
 } catch (err) {
   server.log.error(err)
   process.exit(1)
